@@ -78,7 +78,7 @@ void main()
 	    printf("Invalid Input\n");
 	}
     }
-    
+    getch();
 }
 
 void append()
