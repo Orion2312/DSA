@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<conio.h>
 #include<stdlib.h>
 void append();
 void display();
@@ -8,72 +9,74 @@ void add_begin();
 void delete();
 void mid_length();
 
-struct node 
+struct node
 {
     int data;
     struct node *link;
 };
 struct node *Root=NULL;
 
-int main()
+void main()
 {
+    int i,n;
+    int ch;
+    clrscr();
     printf("WELCOME TO LINKED LIST\n");
-    int i,n;    
+    clrscr();
     while(1)
     {
-        int ch;
-        printf("Enter 1 for append\n");
-        printf("Enter 2 for display\n");
-        printf("Enter 3 for finding length of the linked list\n");
-        printf("Enter 4 for inserting at begining\n");
-        printf("Enter 5 for inserting at a specific position\n");
-        printf("Enter 6 for deleting a node\n");
-        printf("Enter 7 for finding the middle length of the linked list\n");
-        printf("Enter 8 for exiting the linked list\n");
-        printf("Enter your choice: ");
-        scanf("%d",&ch);
-        switch(ch)
-        {
-            case 1:
-            printf("Enter the number of times you want to append: ");
-            scanf("%d",&n);
-            for(i=1;i<=n;i++)
-            {
-                append();
-            }
-            break;
+	printf("Enter 1 for append\n");
+	printf("Enter 2 for display\n");
+	printf("Enter 3 for finding length of the linked list\n");
+	printf("Enter 4 for inserting at begining\n");
+	printf("Enter 5 for inserting at a specific position\n");
+	printf("Enter 6 for deleting a node\n");
+	printf("Enter 7 for finding the middle length of the linked list\n");
+	printf("Enter 8 for exiting the linked list\n");
+	printf("Enter your choice: ");
+	scanf("%d",&ch);
+	switch(ch)
+	{
+	    case 1:
+	    printf("Enter the number of times you want to append: ");
+	    scanf("%d",&n);
+	    for(i=1;i<=n;i++)
+	    {
+		append();
+	    }
+	    break;
 
-            case 2:
-            display();
-            break;
+	    case 2:
+	    display();
+	    break;
 
-            case 3:
-            length();
-            break;
+	    case 3:
+	    length();
+	    break;
 
-            case 4:
-            add_begin();
-            break;
+	    case 4:
+	    add_begin();
+	    break;
 
-            case 5:
-            insert();
-            break;
+	    case 5:
+	    insert();
+	    break;
 
-            case 6:
-            delete();
-            break;
+	    case 6:
+	    delete();
+	    break;
 
-            case 7:
-            mid_length();
-            break;
+	    case 7:
+	    mid_length();
+	    break;
 
-            case 8:
-            exit(1);
-            break;
+	    case 8:
+	    exit(1);
+	    break;
 
-            default:
-            printf("Invalid Input\n");
-        }
+	    default:
+	    printf("Invalid Input\n");
+	}
     }
 }
 
@@ -86,16 +89,16 @@ void append()
     temp->link=NULL;
     if(Root == NULL)
     {
-        Root=temp;
+	Root=temp;
     }
     else{
-        struct node *p;
-        p=Root;
-        while(p->link!=NULL)
-        {
-            p=p->link;
-        }
-        p->link=temp;
+	struct node *p;
+	p=Root;
+	while(p->link!=NULL)
+	{
+	    p=p->link;
+	}
+	p->link=temp;
     }
 }
 
@@ -105,8 +108,8 @@ void display()
     p=Root;
     while(p!=NULL)
     {
-        printf("%d->->",p->data);
-        p=p->link;
+	printf("%d->->",p->data);
+	p=p->link;
     }
     printf("\n");
 }
@@ -118,8 +121,8 @@ int length()
     p=Root;
     while(p!=NULL)
     {
-        p=p->link;
-        count++;
+	p=p->link;
+	count++;
     }
     printf("The length of the linked list is %d\n",count);
     return(count);
@@ -134,12 +137,12 @@ void add_begin()
     temp->link=NULL;
     if(Root == NULL)
     {
-        Root=temp;
+	Root=temp;
     }
     else{
-        temp->link=Root;
-        Root=temp;
-    }    
+	temp->link=Root;
+	Root=temp;
+    }
 }
 
 void insert()
@@ -215,4 +218,3 @@ void mid_length()
         printf("The middle node is on %d postion\n",(length()+1)/2);
     }
 }
-
